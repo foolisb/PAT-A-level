@@ -1,26 +1,26 @@
 #include<stdio.h>
 #include<stdlib.h>
 #define MAX 100
-bool visited[MAX]={false};    //·ÃÎÊ±êÖ¾Êı×é 
+bool visited[MAX]={false};    //è®¿é—®æ ‡å¿—æ•°ç»„ 
 int list[100][100],count[100],num[100]={0};
-typedef struct EdgeNode  //±ß±í½áµã   ´æ´¢±ß±íĞÅÏ¢ 
+typedef struct EdgeNode  //è¾¹è¡¨ç»“ç‚¹   å­˜å‚¨è¾¹è¡¨ä¿¡æ¯ 
 {
-	int adjvex;		    //ÁÚ½ÓµãÓò£¬´æ´¢¸Ã¶¥µã¶ÔÓ¦µÄÏÂ±ê 
-	struct EdgeNode *next;	//Á´Óò£¬Ö¸ÏòÏÂÒ»¸öÁÚ½Óµã 
+	int adjvex;		    //é‚»æ¥ç‚¹åŸŸï¼Œå­˜å‚¨è¯¥é¡¶ç‚¹å¯¹åº”çš„ä¸‹æ ‡ 
+	struct EdgeNode *next;	//é“¾åŸŸï¼ŒæŒ‡å‘ä¸‹ä¸€ä¸ªé‚»æ¥ç‚¹ 
 }EdgeNode;
  
-typedef struct VertexNode   //¶¥µã±í½áµã
+typedef struct VertexNode   //é¡¶ç‚¹è¡¨ç»“ç‚¹
 {
-    int data;      //¶¥µãÓò£¬´æ´¢¶¥µãĞÅÏ¢ 
-	EdgeNode *firstedge;	//±ß±íÍ·Ö¸Õë£¬Ö¸Ïò´Ë¶¥µãµÄµÚÒ»¸öÁÚ½Óµã 
+    int data;      //é¡¶ç‚¹åŸŸï¼Œå­˜å‚¨é¡¶ç‚¹ä¿¡æ¯ 
+	EdgeNode *firstedge;	//è¾¹è¡¨å¤´æŒ‡é’ˆï¼ŒæŒ‡å‘æ­¤é¡¶ç‚¹çš„ç¬¬ä¸€ä¸ªé‚»æ¥ç‚¹ 
 }VertexNode,AdjList[MAX]; 
  
 typedef struct
 {
 	AdjList adjList;     
-	int numVertexes,numNonleaf;   //Í¼ÖĞµ±Ç°¶¥µãÊıºÍ±ßÊı 
+	int numVertexes,numNonleaf;   //å›¾ä¸­å½“å‰é¡¶ç‚¹æ•°å’Œè¾¹æ•° 
 }GraphAdjList,*GraphAdj;
-/*ÁÚ½Ó±í´´½¨*/
+/*é‚»æ¥è¡¨åˆ›å»º*/
 void create(GraphAdj G)
 {
 	int i,j,k;
@@ -28,17 +28,17 @@ void create(GraphAdj G)
 	for(i=0;i<MAX;i++){
 		G->adjList[i].firstedge=NULL;
 	}
-	for(i=0;i<G->numNonleaf;i++)          //½¨Á¢¶¥µã±í 
+	for(i=0;i<G->numNonleaf;i++)          //å»ºç«‹é¡¶ç‚¹è¡¨ 
 	{   
-		G->adjList[list[i][0]].data=list[i][0];    //ÊäÈë¶¥µãµÄ·ûºÅ 
-		G->adjList[list[i][0]].firstedge=NULL; 		//½«±ß±íÖÃ¿Õ 
+		G->adjList[list[i][0]].data=list[i][0];    //è¾“å…¥é¡¶ç‚¹çš„ç¬¦å· 
+		G->adjList[list[i][0]].firstedge=NULL; 		//å°†è¾¹è¡¨ç½®ç©º 
 	}
-	for(k=0;k<G->numNonleaf;k++)             //½¨Á¢±ß±í 
+	for(k=0;k<G->numNonleaf;k++)             //å»ºç«‹è¾¹è¡¨ 
 	{
 		for(j=1;j<=count[k];j++){
 	
-		/*Ê¹ÓÃÍ·²å·¨¼ÓÈë±ß±í½áµã*/
-		e=(EdgeNode *)malloc(sizeof(EdgeNode));   //Éú³É½áµã 
+		/*ä½¿ç”¨å¤´æ’æ³•åŠ å…¥è¾¹è¡¨ç»“ç‚¹*/
+		e=(EdgeNode *)malloc(sizeof(EdgeNode));   //ç”Ÿæˆç»“ç‚¹ 
  
 		e->adjvex=list[k][j];
 		e->next=G->adjList[list[k][0]].firstedge;
@@ -46,16 +46,16 @@ void create(GraphAdj G)
 	    }
 	} 
 } 
-/*ÁÚ½Ó±íµÄÉî¶ÈÓÅÏÈµİ¹é*/
+/*é‚»æ¥è¡¨çš„æ·±åº¦ä¼˜å…ˆé€’å½’*/
 void DFS(GraphAdj G,int i,int d)
 {
 	EdgeNode *p;
-	visited[i]=true;         		//·ÃÎÊ¹ıÁË¸Ã¶¥µã£¬±ê¼ÇÎªTRUE 
-	p=G->adjList[i].firstedge;     //ÈÃpÖ¸Ïò±ß±íµÚÒ»¸ö½áµã 
-	while(p)                      //ÔÚ±ß±íÄÚ±éÀú 
+	visited[i]=true;         		//è®¿é—®è¿‡äº†è¯¥é¡¶ç‚¹ï¼Œæ ‡è®°ä¸ºTRUE 
+	p=G->adjList[i].firstedge;     //è®©pæŒ‡å‘è¾¹è¡¨ç¬¬ä¸€ä¸ªç»“ç‚¹ 
+	while(p)                      //åœ¨è¾¹è¡¨å†…éå† 
 	{
 	
-		if(!visited[p->adjvex])    //¶ÔÎ´·ÃÎÊµÄÁÚ½Ó¶¥µãµİ¹éµ÷ÓÃ 
+		if(!visited[p->adjvex])    //å¯¹æœªè®¿é—®çš„é‚»æ¥é¡¶ç‚¹é€’å½’è°ƒç”¨ 
 			DFS(G,p->adjvex,d+1); 
 		if(!G->adjList[p->adjvex].firstedge)
 			num[d+1]++;   
