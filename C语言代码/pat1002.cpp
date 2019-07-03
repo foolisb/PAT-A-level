@@ -1,5 +1,5 @@
-//×¢ÒâÏµÊýÏà¼ÓµÈÓÚ0µÄÇé¿ö£¬ÒªÉ¾³ý¸ÃÏî
-//ÉùÃ÷µÄ±äÁ¿ÀàÐÍÓëÊäÈëµÄ¸ñÊ½»¯Æ¥Åä£¬%d²»ÄÜ¸³Öµ¸øfloat±äÁ¿ 
+//æ³¨æ„ç³»æ•°ç›¸åŠ ç­‰äºŽ0çš„æƒ…å†µï¼Œè¦åˆ é™¤è¯¥é¡¹
+//å£°æ˜Žçš„å˜é‡ç±»åž‹ä¸Žè¾“å…¥çš„æ ¼å¼åŒ–åŒ¹é…ï¼Œ%dä¸èƒ½èµ‹å€¼ç»™floatå˜é‡ 
 #include<stdio.h>
 struct Dot{
 	int ex;
