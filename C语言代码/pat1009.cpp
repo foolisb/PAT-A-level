@@ -34,7 +34,7 @@ int main(){
 	printf("%d",num);
     for(int k=2000;k>=0;k--)
         if(ans[k])
-            printf(" %d %.1f",k,ans[k]);    //缺点改用数组p，q时第3个测试点总是错误？？？？以后解决
+            printf(" %d %.1f",k,ans[k]);    //缂虹偣鏀圭敤鏁扮粍p锛宷鏃剁3涓祴璇曠偣鎬绘槸閿欒锛燂紵锛燂紵浠ュ悗瑙ｅ喅
 		 
     return 0;
 }
