@@ -47,7 +47,7 @@ int main(){
 		scanf("%d %d",&num,&k);
 		q = (arcnode*)malloc(sizeof(arcnode));
 	    Q.adjlist[num].firstnode = q;
-	    Q.adjlist[num].firstnode->nextarc = NULL; //不能对要访问的指针赋值NULL 
+	    Q.adjlist[num].firstnode->nextarc = NULL; //涓嶈兘瀵硅璁块棶鐨勬寚閽堣祴鍊糔ULL 
 	    Q.adjlist[num].firstnode->adjvex = NULL;
 		for(int j = 0;j < k;j++){
 			q = (arcnode*)malloc(sizeof(arcnode));
