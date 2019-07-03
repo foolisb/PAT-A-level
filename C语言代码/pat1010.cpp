@@ -10,7 +10,7 @@ long long base(char *s){
 	long long max=0;
 	n=strlen(s);
 	for(int i=0;i<n;i++){
-		if(s[i]<='9'){   //单个字符用单引号 
+		if(s[i]<='9'){   //鍗曚釜瀛楃鐢ㄥ崟寮曞彿 
 			temp=s[i]-'0';
 		}
 		else{
@@ -52,16 +52,16 @@ int main(){
 
 	ans1=transfer(a,radix);
 	left=base(b);
-	right=ans1+1;
+	right=ans1+1;               //鍏抽敭鏄壘鍑轰笂涓嬮檺
 	r=ans1+2;
-	while(left<=right){//用二分法防止运行超时 
+	while(left<=right){//鐢ㄤ簩鍒嗘硶闃叉杩愯瓒呮椂 
 		mid=(right+left)/2;
     	ans2=transfer(b,mid);
     	if(ans1==ans2){
     		r=min(r,mid);
     		right--;
 		}
-    	else if(ans1<ans2||ans2<0){//ans2的结果可能溢出long long变为负数 
+    	else if(ans1<ans2||ans2<0){//ans2鐨勭粨鏋滃彲鑳芥孩鍑簂ong long鍙樹负璐熸暟 
     	    right=mid-1;
     	}
     	else if(ans1>ans2){
