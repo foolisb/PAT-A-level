@@ -2,9 +2,9 @@
 
 const int max=1001;//必须加const，后面才能用 
 int father[max],check[max];
-int map[max*max][2];//并查集的建立，max*max因为相同的路a->b和
+int map[max*max][2];//并查集的建立，max*max因为有这么多种排列组合
 
-int findfather(int x){                //b->a可以输两次 
+int findfather(int x){             
 	
 	if(x==father[x]) return x;
 	else return findfather(father[x]);//不用递归内存降一半 
