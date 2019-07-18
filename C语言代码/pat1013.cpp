@@ -1,13 +1,13 @@
 #include<stdio.h>
 
-const int max=1001;//±ØĞë¼Óconst£¬ºóÃæ²ÅÄÜÓÃ 
+const int max=1001;//å¿…é¡»åŠ constï¼Œåé¢æ‰èƒ½ç”¨ 
 int father[max],check[max];
-int map[max*max][2];//²¢²é¼¯µÄ½¨Á¢£¬max*maxÒòÎªÏàÍ¬µÄÂ·a->bºÍ
+int map[max*max][2];//å¹¶æŸ¥é›†çš„å»ºç«‹ï¼Œmax*maxå› ä¸ºç›¸åŒçš„è·¯a->bå’Œ
 
-int findfather(int x){                //b->a¿ÉÒÔÊäÁ½´Î 
+int findfather(int x){                //b->aå¯ä»¥è¾“ä¸¤æ¬¡ 
 	
 	if(x==father[x]) return x;
-	else return findfather(father[x]);//²»ÓÃµİ¹éÄÚ´æ½µÒ»°ë 
+	else return findfather(father[x]);//ä¸ç”¨é€’å½’å†…å­˜é™ä¸€åŠ 
 	
 }
 
