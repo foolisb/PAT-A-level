@@ -6,8 +6,8 @@ const int max=10000;
 bool isPrime(int n){
 	
 	if (n<=1) return false;
-	int sqr=(int)sqrt(1.0*n); //sqrÊÇÏòÏÂÈ¡ÕûµÃÊýËùÒÔ²»ÓÃ¿¼ÂÇ2ºÍ3£¬±Ø¶¨·µ»Øtrue 
-	for(int i=2;i<=sqr;i++){  //sqrtº¯ÊýÒªÇó²ÎÊýÎª¸¡µãÊý£¬°üº¬ÔÚmathÍ·ÎÄ¼þÏÂ 
+	int sqr=(int)sqrt(1.0*n); //sqræ˜¯å‘ä¸‹å–æ•´å¾—æ•°æ‰€ä»¥ä¸ç”¨è€ƒè™‘2å’Œ3ï¼Œå¿…å®šè¿”å›žtrue 
+	for(int i=2;i<=sqr;i++){  //sqrtå‡½æ•°è¦æ±‚å‚æ•°ä¸ºæµ®ç‚¹æ•°ï¼ŒåŒ…å«åœ¨mathå¤´æ–‡ä»¶ä¸‹ 
 		
 		if(n%i==0) return false;
 	}
