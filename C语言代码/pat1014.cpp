@@ -6,7 +6,7 @@ using namespace std;
 
 const int maxn=1001;
 const int INF=0x3fffffff;
-int N,M,K,Q;//´°¿ÚÊı£¬Ã¿¸ö´°¿ÚÊıÈİÄÉ×î´óÈËÊı£¬¿Í»§×ÜÈËÊı£¬ÎÊÑ¯¿Í»§ĞòºÅ
+int N,M,K,Q;//çª—å£æ•°ï¼Œæ¯ä¸ªçª—å£æ•°å®¹çº³æœ€å¤§äººæ•°ï¼Œå®¢æˆ·æ€»äººæ•°ï¼Œé—®è¯¢å®¢æˆ·åºå·
 int transaction[maxn],transactionb[maxn],query[maxn],usingtime[maxn],accutime[21]={0};
 
 void timetransform(int totaltime,int num){
@@ -17,7 +17,7 @@ void timetransform(int totaltime,int num){
 	MM=totaltime%60;
 	HH+=h;
 	
-	if((totaltime-transactionb[num])>=540)//·şÎñ¿ªÊ¼Ê±¼ä²»ÄÜÍíÓÚ17:00£¬Ö®Ç°¿ªÊ¼·şÎñµÄ²»¹Ü¼¸µã¶¼Òª·şÎñÍê 
+	if((totaltime-transactionb[num])>=540)//æœåŠ¡å¼€å§‹æ—¶é—´ä¸èƒ½æ™šäº17:00ï¼Œä¹‹å‰å¼€å§‹æœåŠ¡çš„ä¸ç®¡å‡ ç‚¹éƒ½è¦æœåŠ¡å®Œ 
 		printf("Sorry\n");
 	else{
 		printf("%02d:%02d\n",HH,MM);
@@ -39,7 +39,7 @@ int main(){
 		scanf("%d",&query[n]); 
 	
 	memcpy(transactionb,transaction,sizeof(transaction));
-	//K<=N*M»òÕßK>=N*M
+	//K<=N*Mæˆ–è€…K>=N*M
 	if(K<=N*M){
 	
 		for(int j=1;j<=K;j++){
@@ -51,7 +51,7 @@ int main(){
 		for(int k=1;k<=K;k++){
 			
 			number=(k-1)%N+1;
-			//customer=q[number].pop();pop() ·µ»Øvoid 
+			//customer=q[number].pop();pop() è¿”å›void 
 			customer=q[number].front();
 			q[number].pop();
 			accutime[number]+=transaction[customer];
