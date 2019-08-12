@@ -19,7 +19,7 @@ bool cmp(record a,record b){
 	
 	int s=strcmp(a.name,b.name);
 	if(s!=0)
-		return s<0;              //Ö±½Óa.name<b.name»áÖ»±ÈµÚÒ»¸ö×ÖÄ¸£¬³ÌÐò»áÈÏÎªCYLLºÍCYJJÒ»Ñù 
+		return s<0;              //ç›´æŽ¥a.name<b.nameä¼šåªæ¯”ç¬¬ä¸€ä¸ªå­—æ¯ï¼Œç¨‹åºä¼šè®¤ä¸ºCYLLå’ŒCYJJä¸€æ · 
 	else
 		return a.totaltime<b.totaltime;
 }
@@ -39,14 +39,14 @@ void printbill(char *user){
 		h1=re[ontime].hh;h2=re[offtime].hh;
 		d1=re[ontime].dd;d2=re[offtime].dd;
 		m1=re[ontime].minu;m2=re[offtime].minu;
-	    totalminu=(d2*24*60+h2*60+m2)-(d1*24*60+h1*60+m1);
-	    fee1=d1*rate[24]*60+m1*rate[h1];
-	    for(int i=0;i<h1;i++)
-	    	fee1+=rate[i]*60;
-	    fee2=d2*rate[24]*60+m2*rate[h2];
-	    for(int j=0;j<h2;j++)
-	    	fee2+=rate[j]*60;
-	    fee=fee2-fee1;	
+	        totalminu=(d2*24*60+h2*60+m2)-(d1*24*60+h1*60+m1);
+	        fee1=d1*rate[24]*60+m1*rate[h1];
+	        for(int i=0;i<h1;i++)
+	    		fee1+=rate[i]*60;
+	        fee2=d2*rate[24]*60+m2*rate[h2];
+	        for(int j=0;j<h2;j++)
+	    		fee2+=rate[j]*60;
+	        fee=fee2-fee1;	
 		totalfee+=fee;
 		printf("%02d:%02d:%02d ",d1,h1,m1);
 		printf("%02d:%02d:%02d %d $%.2f\n",d2,h2,m2,totalminu,fee/100.0);
@@ -89,7 +89,7 @@ int main(){
 		}
 		else{
 					
-     		if(!strcmp(re[k-1].state,"on-line") && !strcmp(re[k].state,"off-line")){//Æ¥ÅäÒ»´ÎÍêÕûÍ¨»° 
+     			if(!strcmp(re[k-1].state,"on-line") && !strcmp(re[k].state,"off-line")){//åŒ¹é…ä¸€æ¬¡å®Œæ•´é€šè¯ 
 
 				q.push(k-1);q.push(k);
 			}
